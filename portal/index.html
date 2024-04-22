@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-image-portal@latest"></script>
+
+    <!-- This script is to use the webcam inside the portal -->
+    <!-- <script src="scripts/camera-portal.js"></script> -->
+
+    </head>
+    
+    <body>
+        <a-scene>
+            <a-assets>
+                <a-asset-item id="portal" src="/assets/glb/piazzabevagna-portal.glb"></a-asset-item>
+                <a-asset-item id="sanPietro" src="#"></a-asset-item>
+                <a-asset-item id="sanGiorgio" src="#"></a-asset-item>
+                <a-asset-item id="sanGiovanni" src="/assets/img/gaite/sanGiovanni.png"></a-asset-item>
+                <a-asset-item id="santaMaria" src="/assets/img/gaite/santaMaria.png"></a-asset-item>
+            </a-assets>
+
+            <!-- the sky is set after everything so the entity doesn't have the white surface -->
+            <a-sky transparent></a-sky>
+            
+            <a-camera position="0 0 2w">
+                <a-cursor></a-cursor>
+            </a-camera>
+            
+            <!-- everything after the entity is affected by autoReparent: true -->
+            <a-entity image-portal="src: #portal; autoReparent: true" position="0 0 -5"></a-entity>
+
+            <!-- <a-plane height="1.6" width="1.6" rotation="-90 0 0" color="DarkGoldenRod" position="0 -1 -5"></a-plane> -->
+
+            <!-- Gaite, posizionate in base al logo del Mercato delle Gaite -->
+            <a-entity 
+                geometry="primitive: plane"
+                id="sanPietro" 
+                height="1" 
+                width="1" 
+                position="-2 1 -6" 
+                material="color: green" 
+                rotation="40 70 0"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                text="value: Gaita San Pietro; color: #fff;">
+            </a-entity>
+
+            <a-entity 
+                geometry="primitive: plane"
+                id="sanGiorgio" 
+                height="1" 
+                width="1" 
+                position="2 1 -6" 
+                material="color: blue" 
+                rotation="40 -70 0"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                text="value: Gaita San Giorgio; color: #fff;">
+            </a-entity>
+
+            <a-entity 
+                geometry="primitive: plane"
+                id="sanGiovanni" 
+                height="1" 
+                width="1" 
+                position="-2 -1 -6" 
+                material="color: red" 
+                rotation="-40 70 0"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                text="value: Gaita San Giovanni; color: #000;">
+            </a-entity>
+            <a-entity 
+                geometry="primitive: plane"
+                src="santaMaria" 
+                height="1" 
+                width="1" 
+                position="2 -1 -6" 
+                rotation="-40 -70 0"
+                material="color: yellow" 
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                text="value: Gaita Santa Maria; color: #000;"
+                >
+            </a-entity>
+
+            <!-- Gaite Centrale -->
+            <a-entity
+                id="mercatoGaite" 
+                geometry="primitive: plane"
+                height="1" 
+                width="1"
+                position="0 0 -7" 
+                material="color: DarkGoldenRod"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                text="value: Lorem ipsum dolor sit amet, consectetur adipis; color: #000"
+                >
+            </a-entity>
+        </a-scene>
+    </body>
+    </html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaite</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-image-portal@latest"></script>
+
+    <!-- This script is to use the webcam inside the portal -->
+    <!-- <script src="scripts/camera-portal.js"></script> -->
+
+    </head>
+    
+    <body>
+        <a-scene>
+            <a-assets>
+                <a-asset-item id="portal" src="./assets/glb/piazzabevagna-portal.glb"></a-asset-item>
+                <img src="./assets/img/gaite/9e966109b6f84ebded687555de0572d6.jpg" id="sanPietro">
+                <img src="./assets/img/gaite/girogio.jpg" id="sanGiorgio">
+                <img id="sanGiovanni" src="./assets/img/gaite/sanGiovanni.png">
+                <img id="santaMaria" src="./assets/img/gaite/santaMaria.png">
+                <img src="./assets/img/gaite/il mercato delle gaite banner.jpeg" id="logoGaite" >
+            </a-assets>
+
+            <!-- the sky is set after everything so the entity doesn't have the white surface -->
+            <a-sky transparent></a-sky>
+            
+            <a-camera position="0 0 2">
+                <a-cursor></a-cursor>
+            </a-camera>
+            
+            <!-- everything after the entity is affected by autoReparent: true -->
+            <a-entity image-portal="src: #portal; autoReparent: true" position="0 0 -5"></a-entity>
+
+            <!-- <a-plane height="1.6" width="1.6" rotation="-90 0 0" color="DarkGoldenRod" position="0 -1 -5"></a-plane> -->
+
+            <!-- Gaite, posizionate in base al logo del Mercato delle Gaite -->
+            <a-entity 
+                geometry="primitive: plane"
+                height="1" 
+                width="1" 
+                position="-2 1 -6" 
+                material="src:#sanPietro" 
+                rotation="40 70 0"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                >
+            </a-entity>
+
+            <a-entity 
+                geometry="primitive: plane"
+                height="1" 
+                width="1" 
+                position="2 1 -6" 
+                material="src:#sanGiorgio"
+                rotation="40 -70 0"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                >
+            </a-entity>
+
+            <a-entity 
+                geometry="primitive: plane" 
+                height="1" 
+                width="1" 
+                position="-2 -1 -6" 
+                material="src:#sanGiovanni" 
+                rotation="-40 70 0"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                >
+            </a-entity>
+            <a-entity 
+                geometry="primitive: plane" 
+                height="1" 
+                width="1" 
+                position="2 -1 -6" 
+                rotation="-40 -70 0"
+                material="src:#santaMaria" 
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+              
+                >
+            </a-entity>
+
+            <!-- Gaite Centrale -->
+            <a-entity
+                 
+                geometry="primitive: plane"
+                height="1" 
+                width="1"
+                position="0 0 -7" 
+                material="src:#logoGaite"
+                scale="1 1 1"
+                animation__mouseenter="property: scale; to: 2.5 2.5 2.5; startEvents: mouseenter; dur: 500"
+                animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
+                text="value: Mercato delle gaite, uno degli eventi più importanti di Bevagna; color: #000"
+                >
+            </a-entity>
+        </a-scene>
+    </body>
+    </html>
